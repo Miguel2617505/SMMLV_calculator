@@ -55,5 +55,35 @@ def calculator():
 #--------------
 #Entry Point
 #--------------
+def show_data():
+   import pandas as pd
+   import matplotlib.pyplot as plt
+
+#convert dictionary into a dataframe  
+   smmlv_df = pd.DataFrame(list(SMMLV.items()), columns=["Year", "SMMLV"])
+
+#Calculate the percentage year-to-year 
+   smmlv_df["Change (%)"] = smmlv_df["SMMLV"].pct_change().fillna(0) *  100
+   smmlv_df["Change (%)"] = smmlv_df["Change (%)"].round(2)
+
+#print DF (DaraFrame)
+   print("\nHistorical SMMLV data (2020-2025)")
+   print(smmlv_df)
+
+# Plot the SMMLV values
+   plt.figure(figsize=(8, 4))
+   plt.plot(smmlv_df["Year"], smmlv_df["SMMLV"], marker = "o", linestyle="-", color="blue", label="SMMLV")
+   plt.title("SMMLV Evolution (2020-2025)")
+   plt.xlabel("Year")
+   plt.ylabel("SMMLV (COP)")
+   plt.grid(True)
+   plt.legend()
+   plt.tight_layout()
+   plt.show()
 if __name__ == "__main__":
     calculator()
+#Ask the user if wants to see the chart
+    text = input("Do you want to see the historical SMMLV data and chart? (yes/no): ").lower
+    if text == "yes":
+     show_data()
+    

@@ -1,5 +1,6 @@
 import streamlit as st
-
+import pandas as pd
+import matplotlib.pyplot as plt
 # Dictionary with velues per year
 SMMLV = {
     2020: 980656,
@@ -31,5 +32,24 @@ with col2:
 if st.button("Calculate"):
     total = SMMLV[year] * number
     st.success(f"The total amount is: {total:,} COP")
+
+# Visualización
+st.header("📈 Historical SMMLV Data (2020–2025)")
+
+smmlv_df = pd.DataFrame(list(SMMLV.items()), columns=["Year", "SMMLV"])
+smmlv_df["Change (%)"] = smmlv_df["SMMLV"].pct_change().fillna(0) * 100
+smmlv_df["Change (%)"] = smmlv_df["Change (%)"].round(2)
+
+st.dataframe(smmlv_df, use_container_width=True)
+
+# Gráfico con matplotlib
+fig, ax = plt.subplots()
+ax.plot(smmlv_df["Year"], smmlv_df["SMMLV"], marker='o', linestyle='-', color='blue')
+ax.set_title("SMMLV Evolution (2020–2025)")
+ax.set_xlabel("Year")
+ax.set_ylabel("SMMLV (COP)")
+ax.grid(True)
+
+st.pyplot(fig)
 # If you want to run this program on your browser
 # streamlit run smmlv_app.py

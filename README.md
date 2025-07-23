@@ -1,18 +1,18 @@
 # SMMLV Calculator - Colombia 🇨🇴
 
-This is a simple interactive calculator built in **Python** and **Streamlit** to calculate the total amount of the *Colombian minimum wage (SMMLV)* for different years between 2020 and 2025.
+This is a simple interactive app built with **Python** and **Streamlit** that allows users to calculate the total value of the *Colombian minimum wage (SMMLV)* for any year between **2020 and 2025**, including a historical data view and graphical analysis.
 
-Project created by Miguel Hernández as part of his Data Science learning journey, with purpose and faith.
-  
+Created by **Miguel Hernández** as part of his Data Science journey — with purpose, ethics, and vision 🇨🇴✨
+
 ---
 
 ## 🚀 Features
 
-- ✅ Calculates the total SMMLV for a selected year (2020–2025)
-- 🧮 Interactive Streamlit interface
-- ✔️ Input validation and clean layout
-- 🔁 "Clear" button to reset inputs
-- 📊 Based on official salary values in Colombia
+- ✅ Calculates total SMMLV based on selected year (2020–2025)
+- 🧮 Interactive interface (Streamlit)
+- 📊 Displays SMMLV history and percentage changes
+- 📈 Graph of historical evolution (matplotlib)
+- 🇨🇴 Personalized with Colombian branding
 
 ---
 
@@ -20,12 +20,24 @@ Project created by Miguel Hernández as part of his Data Science learning journe
 
 <img src="https://user-images.githubusercontent.com/your-image-path/example.png" width="600"/>
 
+> 📝 *Replace the image URL above once you upload a screenshot to GitHub or Imgur.*
+
+---
+
+## 🌐 Try it online
+
+🔗 [smmlv-calculator.streamlit.app](https://smmlv-calculator.streamlit.app)  
+> *Optional — if you publish it on Streamlit Cloud*
+
 ---
 
 ## 🧰 Technologies Used
 
-- 🐍 Python 
-- 🎈 Streamlit 
+- 🐍 Python
+- 🎈 Streamlit
+- 📊 pandas
+- 📈 matplotlib
+- 🖼️ Pillow (for image display)
 
 ---
 
@@ -34,5 +46,5 @@ Project created by Miguel Hernández as part of his Data Science learning journe
 ```bash
 git clone https://github.com/tuusuario/smmlv-calculator.git
 cd smmlv-calculator
-pip install streamlit
+pip install -r requirements.txt
 streamlit run smmlv_app.py
